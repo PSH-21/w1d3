@@ -1,14 +1,20 @@
 var countdownGenerator = function (x) {
   /* your code here */
   var statements = [];
-  for (var i = x; i > 0; i--) {
-  	statements.push('T-minus ' + i)
+  for (var i = x; i >= 0; i--) {
+    if (i === 0 ) {
+      statements.push('Blast Off!');
+    }
+    else { statements.push('T-minus ' + i + '...') }
   }
 
   return function() {
-  	if (statements === null) {
+  	if (statements.length == 0) {  //why not statements == null || == undefined
   		console.log('Rocket\'s already gone, bub!');
-  	} else { console.log(statements.shift());}
+  	}
+    else {
+      console.log(statements.shift());  //How to test types
+    }
   }
 
 };
